@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addProduct /*,fetchProducts*/} from '../api/productsApi'; 
+import { addProduct } from '../api/productsApi';
 import './AddProduct.css';
 import { toast } from 'react-toastify';
 
 const AddProduct = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.products);
-  const [id, setId]=useState(0);
-  const [product, setProduct] = useState({ id : '',title: '', price: '', description: '', rating: '',images: '' });
+  const [id, setId] = useState(0);
+  const [product, setProduct] = useState({ id: '', title: '', price: '', description: '', rating: '', images: '' });
 
-  useEffect(()=>{
-          setId(products.length+1);
-  },[]);
-  useEffect(()=>{
-    setProduct({ ...product, id })
-  },[id]);
+  useEffect(() => {
+    setId(products.length + 1);
+  }, [products]);
+
+  useEffect(() => {
+    setProduct({ ...product, id });
+  }, [id]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProduct({ ...product, [name]: value });
@@ -23,15 +25,13 @@ const AddProduct = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {    
-      // const response = 
-      await addProduct(product);
-      // console.log(response);
+    try {
+      await addProduct(product); // Although this won't update the API, it's kept for structure
       dispatch({ type: 'ADD_PRODUCTS', payload: product });
       toast.success("Product added successfully!");
-      setProduct({ title: '', price: '', description: '',rating:'', images: '' });
+      setProduct({ title: '', price: '', description: '', rating: '', images: '' });
     } catch (error) {
-      console.log(error);
+      console.error(error);
       toast.error("Failed to add product.");
     }
   };
@@ -43,7 +43,7 @@ const AddProduct = () => {
         type="text"
         name="title"
         placeholder="Product Name"
-        value={product.name}
+        value={product.title}
         onChange={handleChange}
         required
       />
@@ -68,6 +68,7 @@ const AddProduct = () => {
         placeholder="Ratings"
         value={product.rating}
         onChange={handleChange}
+        max='5'
         required
       />
       <input
