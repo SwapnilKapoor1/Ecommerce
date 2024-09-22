@@ -1,0 +1,96 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 10px;
+  width: 900px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card-content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.product-image {
+  width: 120px;
+  height: 150px;
+  margin-right: 16px;
+  border-radius: 4px;
+}
+
+.product-info {
+  flex: 1;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+p {
+  margin: 8px 0;
+}
+
+.product-rating {
+  margin: 8px 0;
+  color: #f4c150; /* star color */
+}
+
+.product-description {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.edit-input {
+  margin: 4px 0;
+  width: 100%;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.save-button, .edit-button, .delete-button,.cancel-button,.add-button {
+  margin-top: 8px;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.save-button {
+  background-color: #4caf50;
+  color: white;
+}
+.cancel-button{
+  background-color: red;
+  color: white;
+  margin-left:3px;
+}
+
+.edit-button {
+  background-color: #008cba;
+  color: white;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  margin-left:3px;
+}
+.add-button{
+  background-color: rgba(255, 166, 0, 0.733);
+  color: white;
+  margin-left:3px;
+}
+.container{
+  position:relative;
+  left:80%;
+}
+.product-actions{
+  position:relative;
+  right:1%;
+}

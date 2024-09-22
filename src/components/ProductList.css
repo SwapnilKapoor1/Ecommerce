@@ -1,0 +1,24 @@
+.product-list {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sort-button-container {
+    margin-bottom: 1rem;
+  }
+  
+  .sort-button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .sort-button:hover {
+    background-color: #0056b3;
+  }
+  
